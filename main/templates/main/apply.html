@@ -1,0 +1,123 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'super.css' %}">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<title>Kaam dhundo | Apply</title>
+	</head>
+	<style media="screen">
+		h2{
+			color:goldenrod;
+		}
+		h6{
+			color:gray;
+		}
+		body{
+			padding:30px;
+		}
+		input,select{
+			width:50%;
+			padding:10px;
+			color:black;
+			margin-top:50px;
+		}
+		select{
+			background:white;
+		}
+		input::placeholder{
+			color:gray;
+		}
+		h5{
+			margin-top:50px;
+			color:gray;
+		}
+		hr{
+			width:90%;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:50px;
+			background:goldenrod;
+		}
+		label{
+			color:gray;
+		}
+		#yes,#no{
+			width:40px;
+		}
+		button{
+			width:25%;
+			padding:5px;
+			background-color:goldenrod;
+			color:white!important;
+			margin:0 auto!important;
+			border:none;
+		}
+		@media only screen and (max-width: 600px) {
+		input,select{
+		width:100%;
+				font-size:15px;
+		}input::placeholder{
+			font-size:14px;
+		}
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#done").click(function(){
+				window.location.replace("pg3job.html")
+			})
+		})
+	</script>
+	<body>
+		<h2> Hi there. </h2>
+		<h6> Create an account to be visible to employers nearby </h6>
+		<section>
+			<h5> Basic info </h5>
+			<input type="text" name="name" id="name" placeholder="Enter your name here">
+			<input type="text" name="name" id="name" placeholder="Enter your city name here">
+			<select class="language" id="language">
+				<option value="Hindi">Hindi</option>
+				<option value="English">English</option>
+				<option value="Regional Language">Regional Language</option>
+			</select>
+			<select class="gender" id="gender">
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="Non-binary">Non-binary</option>
+			</select>
+			<input type="number" name="age" id="age" placeholder="Enter your age here">
+			<input type="text" name="aadhar" id="aadhar" placeholder="Enter your aadhar number here">
+			<input type="text" name="ph" id="ph" placeholder="Enter your phone number here">
+		</section>
+		<hr>
+		<section>
+			<h5> Job-specific info </h5>
+			<input type="text" name="name" id="name" placeholder="Enter your skills here">
+			<select class="edu" id="edu">
+				<option value="Primary School">Primary School</option>
+				<option value="High School">High school</option>
+				<option value="College">College</option>
+			</select>
+			<input type="number" name="salary" id="salary" placeholder="Enter your expected monthly salary here">
+			<input type="text" name="prevjob" id="prevjob" placeholder="Enter your previous jobs here">
+			<input type="number" name="exp" id="ph" placeholder="Enter your years of experience here">
+			<br>
+			<input type="radio" id="yes" name="willing">
+			<label for="yes">Yes, I am willing to go out of the city</label><br>
+			<input type="radio" id="no" name="willing">
+			<label for="no">No, I am not willing to leave the city</label><br>
+		</section>
+		<button type="button" id="done">Done</button>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
+</html>
