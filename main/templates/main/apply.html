@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="{% static 'super.css' %}">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
 		<title>Kaam dhundo | Apply</title>
 	</head>
 	<style media="screen">
@@ -68,53 +69,14 @@
 		}
 		}
 	</style>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#done").click(function(){
-				window.location.replace("pg3job.html")
-			})
-		})
-	</script>
 	<body>
 		<h2> Hi there. </h2>
 		<h6> Create an account to be visible to employers nearby </h6>
-		<section>
-			<h5> Basic info </h5>
-			<input type="text" name="name" id="name" placeholder="Enter your name here">
-			<input type="text" name="name" id="name" placeholder="Enter your city name here">
-			<select class="language" id="language">
-				<option value="Hindi">Hindi</option>
-				<option value="English">English</option>
-				<option value="Regional Language">Regional Language</option>
-			</select>
-			<select class="gender" id="gender">
-				<option value="Male">Male</option>
-				<option value="Female">Female</option>
-				<option value="Non-binary">Non-binary</option>
-			</select>
-			<input type="number" name="age" id="age" placeholder="Enter your age here">
-			<input type="text" name="aadhar" id="aadhar" placeholder="Enter your aadhar number here">
-			<input type="text" name="ph" id="ph" placeholder="Enter your phone number here">
-		</section>
-		<hr>
-		<section>
-			<h5> Job-specific info </h5>
-			<input type="text" name="name" id="name" placeholder="Enter your skills here">
-			<select class="edu" id="edu">
-				<option value="Primary School">Primary School</option>
-				<option value="High School">High school</option>
-				<option value="College">College</option>
-			</select>
-			<input type="number" name="salary" id="salary" placeholder="Enter your expected monthly salary here">
-			<input type="text" name="prevjob" id="prevjob" placeholder="Enter your previous jobs here">
-			<input type="number" name="exp" id="ph" placeholder="Enter your years of experience here">
-			<br>
-			<input type="radio" id="yes" name="willing">
-			<label for="yes">Yes, I am willing to go out of the city</label><br>
-			<input type="radio" id="no" name="willing">
-			<label for="no">No, I am not willing to leave the city</label><br>
-		</section>
-		<button type="button" id="done">Done</button>
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Submit</button>
+		</form>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

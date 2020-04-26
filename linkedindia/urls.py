@@ -23,5 +23,6 @@ from main.views import *
 urlpatterns = [
   path('admin/', admin.site.urls),
   path('', home, name='home'),
-  # path('employee', empl, name='employee'),
+  path('apply', apply_job, name='apply'),
+  path('success', success, name='success')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
