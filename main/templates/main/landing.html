@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="{% static 'super.css' %}">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<title>Kaam dhundo</title>
+		<title>LinkedIndia</title>
 	</head>
 	<style media="screen">
 		body{
@@ -40,6 +40,12 @@
 			$("#job").click(function(){
 				console.log("jobclicked")
 				window.location.replace("{% url 'apply' %}")
+			})
+		})
+		$(document).ready(function(){
+			$("#employ").click(function(){
+				console.log("jobclicked")
+				window.location.replace("{% url 'find' %}")
 			})
 		})
 	</script>

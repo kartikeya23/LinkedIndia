@@ -28,6 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Important URLs
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/auth/login'
+LOGOUT_REDIRECT_URL = '/'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -59,7 +66,7 @@ ROOT_URLCONF = 'linkedindia.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['linkedindia/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
