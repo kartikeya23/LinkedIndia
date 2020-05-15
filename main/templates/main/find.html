@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<title>Kaam dhundo</title>
+	</head>
+	<style media="screen">
+		body{
+			padding:30px;
+		}
+		table{
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top:20px;
+		}
+		table, th, td {
+			padding:10px;
+		}
+		a{
+			color:goldenrod!important;
+		}
+		th{
+			background-color:goldenrod!important;
+			color:white;
+		}
+		h4{
+			margin-top: 20px;
+			font-size: 15px;
+			color:gray;
+		}
+		a{
+			margin-top: 20px!important;
+			font-style: italic;
+		}
+	</style>
+	<body>
+		<h4> फ़िल्टर किए गए परिणाम </h4>
+		<h3> अपने पास के कर्मचारी </h3>
+		<div class="main-content">
+			<div style="overflow-x:auto;">
+				<table>
+					<tr>
+						<th> Name </th>
+						<th> Ph.number </th>
+						<th> Email </th>
+					</tr>
+					{% for emp in employees %}
+						<tr onclick="document.location='{% url 'details' emp.id %}'" style="cursor:hand;">
+							<td>{{ emp.name }}</td>
+							<td>{{ emp.phone }}</td>
+							<td>{{ emp.mail }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+				{% if error %}
+					<h3>{{ error }}</h1>
+				{% endif %}
+			</div>
+			<!-- Site footer -->
+			<!-- Optional JavaScript -->
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+				    $(".clickable-row").click(function() {
+				        window.location = $(this).data("href");
+				    });
+				});
+			</script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		</body>
+	</html>

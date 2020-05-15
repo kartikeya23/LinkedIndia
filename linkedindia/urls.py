@@ -27,6 +27,7 @@ urlpatterns = [
   path('apply', apply_job, name='apply'),
   path('success', success, name='success'),
   path('find', find, name='find'),
+  path('details/<int:emp_id>', details, name='details'),
   # AUTH
   path('auth/login', auth_views.LoginView.as_view(), name='login'),
   path('auth/signup', signup, name='signup'),

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h2>Sign Up to find employees!</h2>
+	<form method="POST">
+		{% csrf_token %}
+		{{ u_form.as_p }}
+		{% for er in u_form.errors %}
+			<h4>{{ er }}</h2>
+		{% endfor %}
+		{{ e_form.as_p }}
+		{% for er in e_form.errors %}
+			<h4>{{ er }}</h2>
+		{% endfor %}
+		<button type='submit'>SignUp</button>
+	</form>
+{% endblock %}

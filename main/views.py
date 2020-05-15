@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EmployeeForm, EmployerForm, FindForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from .models import Employee
 
 # Create your views here.
 def home(request):
@@ -74,9 +75,28 @@ def find(request):
 	except:
 		print('error you have been logged out')
 		return redirect('logout')
-	if request.method == 'GET':
-		form = FindForm(request.GET)
-		return render(request, 'main/find.html', {'form': form})
-	else:
-		form = FindForm()
+	employees = Employee.objects.all()[:15]
+	# if request.method == 'GET':
+	# 	form = FindForm(request.GET)
+	# 	return render(request, 'main/find.html', {'form': form, 'employees': employees})
+	# else:
+	# 	form = FindForm(request.POST)
+	# 	# print()
+	# 	if form.is_valid():
+	# 		error = None
+	# 		data = form.cleaned_data
+	# 		print(data)
+	# 		if data['city'] != '':
+	# 			employees = employees.filter(city=data['city'])
+	# 		employees.filter(lang=data['language'])
+	# 		print(employees)
+	# 		if not employees.exists():
+	# 			error = 'None were found with matching parameters'
+	return render(request, 'main/find.html', {'employees': employees}) #, 'error': error, 'form': form,})
 	return redirect('home')
+
+
+@login_required()
+def details(request, emp_id):
+  employee = get_object_or_404(Employee, pk=emp_id)
+  return render(request, 'main/details.html',{'employee':employee})

@@ -23,27 +23,35 @@ class Employee(models.Model):
 
 	HINDI = 'HI'
 	ENGLISH = 'EN'
-	MARATHI = 'MR'
-	RAJASTHANI = 'RJ'
 
 	LANGUAGE_CHOICES = (
-		(HINDI, 'Hindi'),
+		(HINDI, 'हिन्दी'),
 		(ENGLISH, 'English'),
-		(MARATHI, 'Marathi'),
-		(RAJASTHANI, 'Rajasthani'))
+	)
 
 	MALE = 'M'
 	FEMALE = 'F'
 	NOTA = 'N'
 
 	GENDER_CHOICES = (
-		(MALE, 'Male'),
-		(FEMALE, 'Female'),
-		(NOTA, 'Refuse to answer'))
+		(MALE, 'पुरुष'),
+		(FEMALE, 'महिला'),
+		(NOTA, 'कोई वरीयता नहीं')
+	)
+
+	COLLEGE = 'C'
+	PRIMARY = 'P'
+	HIGH_SCHOOL = 'H'
+
+	EDU_CHOICES = (
+		(PRIMARY, 'प्राथमिक विद्यालय'),
+		(HIGH_SCHOOL, 'उच्च विद्यालय'),
+		(COLLEGE, 'कॉलेज')
+	)
 
 	name = models.CharField(max_length=50)
 	dob = models.DateField()
-	image = models.ImageField(upload_to='images/')
+	image = models.ImageField(upload_to='images/', blank=True)
 	phone = PhoneNumberField()
 	gender = models.CharField(choices=GENDER_CHOICES, max_length=50, default=NOTA)
 	mail = models.EmailField()
@@ -52,6 +60,11 @@ class Employee(models.Model):
 	location = PlainLocationField(based_fields=['city'], zoom=7)
 	adhaar = models.CharField(max_length=12, default='123456789012')
 	emp_status = models.BooleanField(default=False)
+	#skills related
+	skills = models.CharField(max_length=80)
+	education = models.CharField(choices=EDU_CHOICES, max_length=50)
+	salary = models.PositiveIntegerField()
+	experience = models.PositiveSmallIntegerField()
 
 
 	class Meta:
